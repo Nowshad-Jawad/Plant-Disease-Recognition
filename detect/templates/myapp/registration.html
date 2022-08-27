@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plantify</title>
+</head>
+<body style="margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; background-image: url('{% static 'media/4.jpg' %}');">
+<div style="padding: 35px 60px; background-color: #000000; height:90px;">
+      <h4 style=" margin-bottom:0; padding: 0; color: #FFE4C4; font-size: 16px;"> A PLANT DISEASE RECOGNITION PLATFORM</h4>
+      <h1 style="color: #F5F5F5; float: left;
+  font-size: 35px;"> PLANTIFY</h1>
+    <button style="width:150px; height:50px; margin-left:800px; margin-right:50px; background-color: #4CAF50; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;"> <a href="{% url 'home' %}"> Home </a> </button>
+</div>
+<div style="background-color:green; margin-left:500px; width:300px; text-align:center;">
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{% endfor %}
+{% endif %}
+</div>
+<div style="margin-left:600px; text-align:center;"><h2 style="text-align:center;">GET REGISTERED!</h2>
+<form style="padding:0px 60px;" method="post">
+        {% csrf_token %}
+
+        {% for form in form %}
+    <h4 style="margin:0;">{{form.label_tag}}</h4>
+    <p style="margin:0;">   {{form}}</p> {{form.errors|striptags}} <br> <br>
+        {% endfor %}
+        <p>Already registered? <a href="{% url 'userLogin' %}">Log In</a></p>
+    <button style=" height:50px; background-color: #4CAF50; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;"> SUBMIT </button>
+        </form>
+
+
+      </form>
+</div>
+</body>
+</html>

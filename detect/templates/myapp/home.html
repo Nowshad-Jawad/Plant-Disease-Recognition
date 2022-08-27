@@ -1,0 +1,44 @@
+{%  load static  %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Plantify</title>
+  </head>
+  <body style="margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; background-image: url('{% static 'media/8.jpg' %}');">
+    <div style="padding: 35px 60px; background-color: #000000; height:90px;">
+      <h4 style=" margin-bottom:0; padding: 0; color: #FFE4C4; font-size: 16px;"> A PLANT DISEASE RECOGNITION PLATFORM</h4>
+      <h1 style="color: #F5F5F5; float: left;
+  font-size: 35px;"> PLANTIFY </h1>
+
+      {% if request.user.is_authenticated %}
+        <button style="width:150px; height:50px; margin-left:850px; margin-right:20px; background-color: #4CAF50; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;"> <a href="{% url 'userLogOut' %}"> Log Out </a> </button>
+      {% else %}
+
+        <button style="width:150px; height:50px; margin-left:650px; margin-right:50px; background-color: #4CAF50; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;"> <a href="{% url 'userLogin' %}"> Login </a> </button>
+        <button style=" height:50px; background-color: #4CAF50; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;"> <a href="{% url 'userRegistration' %}"> Registration </a> </button>
+      {% endif %}
+    </div>
+    <div>
+      <p style="color: #FFFFFF; padding:120px; margin:0; text-align:center; height:0;">A plant disease recognition website. This is specifically built
+      for detecting plant disease by image recognition. Just upload an image of diseased plant and get immediate results.</p>
+      <div style="margin:0 150px; padding:0 50px;">
+        <img src="{% static 'media/9.jpg' %}"   style="width:150px;">
+        <img src="{% static 'media/10.jpg' %}"  style="width:150px;">
+        <img src="{% static 'media/11.jpg' %}"  style="width:150px;">
+        <img src="{% static 'media/12.jpg' %}"  style="width:150px;">
+        <img src="{% static 'media/13.jpg' %}"  style="width:150px;">
+        <img src="{% static 'media/14.jpg' %}"  style="width:150px;">
+      </div>
+      {% if request.user.is_authenticated %}
+      <button style=" margin-top:20px; margin-left:600px; height:50px; background-color: #4CAF50; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;"> <a href="{% url 'inputImage' %}"> Detect Disease </a> </button>
+      {% else %}
+      <button style=" margin-top:20px; margin-left:600px; height:50px; background-color: #4CAF50; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;"> <a href="{%url 'userRegistration' %}"> Registration </a> </button>
+      {% endif %}
+    </div>
+  </body>
+</html>

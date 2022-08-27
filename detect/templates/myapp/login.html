@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plantify</title>
+</head>
+<body style="margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; background-image: url('{% static 'media/4.jpg' %}');">
+<div style="padding: 35px 60px; background-color: #000000; height:90px;">
+      <h4 style=" margin-bottom:0; padding: 0; color: #FFE4C4; font-size: 16px;"> A PLANT DISEASE RECOGNITION PLATFORM</h4>
+      <h1 style="color: #F5F5F5; float: left;
+  font-size: 35px;"> PLANTIFY </h1>
+    <button style="width:150px; height:50px; margin-left:800px; margin-right:50px; background-color: #4CAF50; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;"> <a href="{% url 'home' %}"> Home </a> </button>
+</div>
+<div style="background-color:green; margin-left:500px; width:300px; text-align:center;">
+{% if messages %}
+{% for message in messages %}
+<h4 style="color:#000000;">{{message}}</h4>
+{% endfor %} {% endif %}
+</div>
+
+<div style="margin-left:600px; text-align:center;"><h2 style="text-align:center;">LOG IN!</h2>
+<form style="padding:0px 60px;" method="post">
+    {% csrf_token %}
+    <h4 style="margin-bottom:20px">Username</h4>
+        <input type="text", name="username", placeholder="Enter Username" style="height:40px; width:200px; text-align:center;"> <br><br>
+    <h4 style="margin-bottom:20px">Password</h4>
+        <input type="password", name="password", placeholder="Enter Password" style="height:40px; width:200px; text-align:center;">
+        <p>Don't Have An Account? <a href="{% url 'userRegistration' %}">Register Now!</a></p>
+    <button style=" height:50px; background-color: #4CAF50; padding: 15px 32px; text-align: center; display: inline-block; font-size: 16px;"> SUBMIT </button>
+        </form>
+
+
+
+</body>
+</html>

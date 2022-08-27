@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Plantify</title>
+</head>
+<body style="margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; background-image: url('{% static 'media/3.jpg' %}');">
+<div style="padding: 35px 60px; background-color: #000000; height:90px;">
+      <h4 style=" margin-bottom:0; padding: 0; color: #FFE4C4; font-size: 16px;"> A PLANT DISEASE RECOGNITION PLATFORM</h4>
+      <h1 style="color: #F5F5F5; float: left;
+  font-size: 35px;"> PLANTIFY </h1> </div>
+<div style="background-color:green; margin-left:500px; width:300px; text-align:center;">
+{% if messages %}
+{% for message in messages %}
+<h4 style="color:#000000;">{{message}}</h4>
+{% endfor %} {% endif %}
+</div>
+
+{% csrf_token %}
+    <form class="" method="post">
+        <div style="margin:80px 120px; padding:0 160px; display:flex; width:900px;">
+            <div>
+          <img src="{{img.photo.url}}" style="width:300px;
+          height=100px;">
+                </div>
+            <div style="padding:50px 30px;">
+            <table style="table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  padding:0.5rem; color:white;">
+                <caption>Generated Information</caption>
+                <tr style="border: 3px solid black; color:white;">
+                    <th style="border: 3px solid black; text-align:center;">Category</th>
+                    <th styel="text-align:center;">Result</th>
+                </tr>
+
+                <tr style="border: 3px solid black; color:white;">
+                    <td style="border: 3px solid black;  text-align:center;"> Disease Name</td>
+                    <td style="text-align:center;">{{predi}}</td>
+                </tr>
+               <tr style="border: none">
+                   <td></td>
+                   <td style="text-align:center; padding: 10px 100px;"><button style=" height:50px; background-color: #4CAF50;
+                   padding: 15px 32px; text-align: center; display: inline-block;
+                   font-size: 16px;"><a href="{%url 'inputImage' %}">Reload</a></button></td>
+                </tr>
+            </table>
+            </div>
+        </div>
+
+    </form>
+
+
+</body>
+</html>
